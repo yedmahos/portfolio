@@ -37,34 +37,61 @@ const Education = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <div className="grid grid-cols-1 gap-12 max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex flex-col items-center"
-            >
-              <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-4">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/en/e/ef/KIIT_logo.svg"
-                  alt="KIIT"
-                  className="w-16 h-16 object-contain"
-                />
-              </div>
-              
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-primary-foreground/90 mb-2 uppercase">
-                  KALINGA INSTITUTE OF INDUSTRIAL TECHNOLOGY
-                </h3>
-                <p className="text-sm text-primary-foreground/70 mt-1">
-                  Bachelor of Technology in Computer Science
-                </p>
-                <p className="text-sm text-primary-foreground/70 mt-1">
-                  Aug'24 - Jun'28
-                </p>
-              </div>
-            </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                institution: "ST. PAUL'S ACADEMY",
+                degree: "Class X, ICSE",
+                duration: "April 2011 - May 2022",
+                logo: "/stpauls.png",
+              },
+              {
+                institution: "MAGNUS GLOBAL SCHOOL",
+                degree: "Class XII, Science, CBSE",
+                duration: "June 2022 - March 2024",
+                logo: "/magnus.png",
+              },
+              {
+                institution: "KALINGA INSTITUTE OF INDUSTRIAL TECHNOLOGY",
+                degree: "Bachelor of Technology in Computer Science",
+                duration: "Aug'24 - Jun'28",
+                logo: "https://upload.wikimedia.org/wikipedia/en/e/ef/KIIT_logo.svg",
+              }
+            ].map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-4 overflow-hidden p-2">
+                  <img
+                    src={edu.logo}
+                    alt={edu.institution}
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      // Fallback for when the user hasn't uploaded the logos yet
+                      e.target.onerror = null; 
+                      e.target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%23f1f5f9'/><text x='50' y='55' font-family='sans-serif' font-size='30' text-anchor='middle' fill='%2394a3b8'>UI</text></svg>";
+                    }}
+                  />
+                </div>
+                
+                <div className="text-center px-4 w-full">
+                  <h3 className="text-xl md:text-2xl font-bold text-primary-foreground/90 mb-2 uppercase break-words">
+                    {edu.institution}
+                  </h3>
+                  <p className="text-sm text-primary-foreground/70 mt-1">
+                    {edu.degree}
+                  </p>
+                  <p className="text-sm text-primary-foreground/70 mt-1">
+                    {edu.duration}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

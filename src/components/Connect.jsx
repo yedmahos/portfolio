@@ -108,7 +108,7 @@ const Connect = () => {
                 </div>
                 <div className="w-full h-48 md:h-56 rounded-xl overflow-hidden border border-white/10 relative shadow-lg group">
                     <iframe
-                      src={`https://maps.google.com/maps?q=${encodeURIComponent(bio.location)}&t=&z=12&ie=UTF8&iwloc=&output=embed`}
+                      src={`https://maps.google.com/maps?q=${encodeURIComponent("KIIT University, Bhubaneswar, Odisha")}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
