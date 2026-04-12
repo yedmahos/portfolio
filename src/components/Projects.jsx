@@ -118,16 +118,33 @@ const Projects = () => {
     const handleMouseMove = (e) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
+      
+      // Robustly ensure the cursor only shows if we are precisely over a project card
+      const currentElement = document.elementFromPoint(e.clientX, e.clientY);
+      if (!currentElement || !currentElement.closest('.project-card')) {
+        setHoveredIndex(null);
+      }
+    };
+
+    const handleScroll = () => {
+      // Hide cursor immediately when scrolling to prevent it getting "stuck"
+      setHoveredIndex(null);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, [mouseX, mouseY]);
 
   return (
     <section 
       id="projects" 
       className="mt-10 py-6 sm:py-10 lg:py-20 relative overflow-hidden border-b border-border"
+      onMouseLeave={() => setHoveredIndex(null)}
     >
       {/* Header Section */}
       <div className="w-full relative pt-2 md:pt-8 pb-8 md:pb-16 flex flex-col justify-center">

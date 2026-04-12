@@ -8,22 +8,20 @@ const Experience = () => {
     visible: { 
       opacity: 1, 
       transition: { 
-        delayChildren: 0.1,
-        staggerChildren: 0.25 
+        delayChildren: 0.2,
+        staggerChildren: 0.2 
       } 
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -40, filter: 'blur(5px)' },
+    hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
-      x: 0, 
-      filter: 'blur(0px)',
+      y: 0, 
       transition: { 
         duration: 0.7, 
-        type: "spring", 
-        bounce: 0.3 
+        ease: [0.22, 1, 0.36, 1] 
       } 
     }
   };
@@ -81,11 +79,7 @@ const Experience = () => {
                 className="relative group cursor-default"
                 style={{ "--hover-color": exp.color || "#EA4335" }}
               >
-                <motion.div 
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.25 + 0.3, type: "spring" }}
+                <div 
                   className="absolute -left-[36.5px] md:-left-[52.5px] top-1 w-5 h-5 rounded-full border-4 border-[#3b1c32] bg-[var(--hover-color)] shadow-[0_0_10px_var(--hover-color)] group-hover:scale-[1.3] group-hover:shadow-[0_0_20px_var(--hover-color)] transition-all duration-300 z-10" 
                 />
                 
