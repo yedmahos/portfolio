@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Education from './components/Education';
 import Projects from './components/Projects';
-import Achievements from './components/Achievements';
+import Experience from './components/Experience';
 import Connect from './components/Connect';
 import Footer from './components/Footer';
 
@@ -17,7 +17,7 @@ function App() {
         <Hero />
         <Education />
         <Projects />
-        <Achievements />
+        <Experience />
         <Connect />
         <Footer />
       </main>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Instagram, User, GraduationCap, Code, Award, MessageCircle } from 'lucide-react';
+import { Github, Linkedin, Mail, Instagram, User, GraduationCap, Code, Award, MessageCircle, Briefcase } from 'lucide-react';
 
 export const WhatsAppIcon = (props) => (
   <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" {...props} xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@ export const projects = [
     subtitle: "Cattle Health Pipeline",
     description: "End-to-end ETL pipeline normalizing health records for 60+ cattle, surfacing actionable insights for rural farming families across two districts. Won Enactus National Exposition 2025 and represented India at the World Cup.",
     tags: ["Python", "SQL", "Data Engineering"],
-    links: { demo: "https://dharitri.site", github: "https://github.com/yedmahos" },
+    links: { demo: "https://projectdharitri.vercel.app/", github: "https://github.com/yedmahos" },
     image: "/dharitri-bg.png",
     imageFit: "contain",
     imagePosition: "center",
@@ -69,6 +69,49 @@ export const navLinks = [
   { id: "about", title: "About", icon: User },
   { id: "education", title: "Education", icon: GraduationCap },
   { id: "projects", title: "Projects", icon: Code },
-  { id: "certificates", title: "Achievements", icon: Award },
+  { id: "experience", title: "Experience", icon: Briefcase },
   { id: "connect", title: "Connect", icon: MessageCircle },
+];
+
+export const experiences = [
+  {
+    title: "Founder & CEO",
+    company: "and.",
+    duration: "January 2026",
+    description: "",
+    logo: "/and-logo.png",
+    color: "#EA4335" 
+  },
+  {
+    title: "System Developer",
+    company: "GeeksforGeeks KIIT",
+    duration: "December 2025",
+    description: "",
+    logo: "/gfg.png",
+    color: "#2F8D46" 
+  },
+  {
+    title: "Member",
+    company: "USC.KIIT",
+    duration: "July 2025",
+    description: "",
+    logo: "/usckiit.png",
+    color: "#FACC15" 
+  },
+  {
+    title: "Member",
+    company: "Enactus KISS KIIT",
+    duration: "December 2024",
+    description: "Won National Exposition 2025 and Represented India in World Cup 2025",
+    logo: "/enactus.png",
+    color: "#FFC107" 
+  },
+  {
+    title: "Executive",
+    company: "KIIT E-CELL",
+    duration: "November 2024",
+    description: "Domain : Marketing & EIR",
+    logo: "/ecell.png",
+    color: "#3b82f6" 
+  }
 ];

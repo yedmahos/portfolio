@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, ArrowUpRight, MessageCircle } from 'lucide-react';
+import { Mail, Send, ArrowUpRight, MessageCircle, MapPin } from 'lucide-react';
 import { socialLinks, bio, WhatsAppIcon } from '../data/portfolio';
 
 const Connect = () => {
@@ -101,32 +101,24 @@ const Connect = () => {
                 </a>
               </div>
 
-              <div className="flex gap-4">
-                {socialLinks.filter(s => s.platform !== "WhatsApp" && s.platform !== "Email").map((social) => (
-                  <motion.a
-                    key={social.platform}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center w-12 h-12 rounded-full border transition-colors"
-                    style={{
-                      color: social.color,
-                      borderColor: social.color,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = social.color;
-                      e.currentTarget.style.color = '#ffffff';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.color = social.color;
-                    }}
-                  >
-                    <social.icon className="h-5 w-5" />
-                  </motion.a>
-                ))}
+              <div className="mt-8 pt-6 lg:pt-8 border-t border-border">
+                <div className="flex items-center gap-3 text-lg md:text-xl font-medium text-foreground mb-6">
+                  <MapPin className="w-6 h-6 text-primary" />
+                  <span>{bio.location}</span>
+                </div>
+                <div className="w-full h-48 md:h-56 rounded-xl overflow-hidden border border-white/10 relative shadow-lg group">
+                    <iframe
+                      src={`https://maps.google.com/maps?q=${encodeURIComponent(bio.location)}&t=&z=12&ie=UTF8&iwloc=&output=embed`}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                      title="Location Map"
+                    ></iframe>
+                </div>
               </div>
             </motion.div>
           </motion.div>
