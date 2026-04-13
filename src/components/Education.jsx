@@ -42,13 +42,13 @@ const Education = () => {
               {
                 institution: "ST. PAUL'S ACADEMY",
                 degree: "Class X, ICSE",
-                duration: "April 2011 - May 2022",
+                duration: "April'11 - May'22",
                 logo: "/stpauls.png",
               },
               {
                 institution: "MAGNUS GLOBAL SCHOOL",
                 degree: "Class XII, Science, CBSE",
-                duration: "June 2022 - March 2024",
+                duration: "June'22 - March'24",
                 logo: "/magnus.png",
               },
               {
